@@ -17,18 +17,18 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 var endURL = "http://app.network-leads.com";
 
 var ContractEditor = function ContractEditor(props) {
-  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountId=" + props?.subAccountId + "&id=" + props?.id;
-  (0, _react.useEffect)(function (e) {
-    window.addEventListener("message", function (event) {
-      try {
-        var data = JSON.parse(event.data);
+  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountId=" + props?.subAccountId + "&id=" + props?.id; // useEffect((e) => {
 
-        if (data?.type == "onSave" && props?.onSave) {
-          props?.onSave(data?.data);
-        }
-      } catch (e) {}
-    }, false);
-  }, []);
+  window.addEventListener("message", function (event) {
+    try {
+      var data = JSON.parse(event.data);
+
+      if (data?.type == "onSave" && props?.onSave) {
+        props?.onSave(data?.data);
+      }
+    } catch (e) {}
+  }, false); // },[])
+
   return /*#__PURE__*/_react["default"].createElement("iframe", {
     src: url,
     style: {
@@ -42,18 +42,18 @@ var ContractEditor = function ContractEditor(props) {
 exports.ContractEditor = ContractEditor;
 
 var ContractSign = function ContractSign(props) {
-  var url = endURL + "/editor/send?PK=" + props?.publishKey + "&contractKey=" + props?.contractKey;
-  (0, _react.useEffect)(function (e) {
-    window.addEventListener("message", function (event) {
-      try {
-        var data = JSON.parse(event.data);
+  var url = endURL + "/editor/send?PK=" + props?.publishKey + "&contractKey=" + props?.contractKey; // useEffect((e)=>{
 
-        if (data?.type == "onSubmit" && props?.onSubmit) {
-          props?.onSubmit(data?.data);
-        }
-      } catch (e) {}
-    }, false);
-  }, []);
+  window.addEventListener("message", function (event) {
+    try {
+      var data = JSON.parse(event.data);
+
+      if (data?.type == "onSubmit" && props?.onSubmit) {
+        props?.onSubmit(data?.data);
+      }
+    } catch (e) {}
+  }, false); // },[])
+
   return /*#__PURE__*/_react["default"].createElement("iframe", {
     src: url,
     style: {

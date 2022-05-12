@@ -8,7 +8,7 @@ const ContractEditor = (props) => {
     var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountId="+props?.subAccountId+"&id="+props?.id;
 
 
-    useEffect((e) => {
+    // useEffect((e) => {
         window.addEventListener("message", (event)=>{
             try{
                 var data = JSON.parse(event.data);
@@ -19,14 +19,14 @@ const ContractEditor = (props) => {
 
             }
         }, false);
-    },[])
+    // },[])
 
     return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
 const ContractSign = (props) => {
     var url = endURL+"/editor/send?PK="+props?.publishKey+"&contractKey="+props?.contractKey;
 
-    useEffect((e)=>{
+    // useEffect((e)=>{
         window.addEventListener("message", (event)=>{
             try{
                 var data = JSON.parse(event.data);
@@ -37,7 +37,7 @@ const ContractSign = (props) => {
 
             }
         }, false);
-    },[])
+    // },[])
 
     return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
