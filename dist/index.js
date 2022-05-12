@@ -42,4 +42,4 @@ const ContractSign = (props) => {
 	return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
 
-export {ContractEditor,ContractSender};
+export {ContractEditor,ContractSign};
