@@ -1,45 +1,67 @@
-import React, {useEffect, useState, useRef} from "react";
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ContractSign = exports.ContractEditor = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 // const endURL = "http://localhost:3001";
-const endURL = "http://app.network-leads.com";
+var endURL = "http://app.network-leads.com";
 
-const ContractEditor = (props) => {
-	var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountId="+props?.subAccountId+"&id="+props?.id;
+var ContractEditor = function ContractEditor(props) {
+  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountId=" + props?.subAccountId + "&id=" + props?.id;
+  (0, _react.useEffect)(function (e) {
+    window.addEventListener("message", function (event) {
+      try {
+        var data = JSON.parse(event.data);
 
-	// todo: make it run
-	// useEffect((e)=>{
-	window.addEventListener("message", (event)=>{
-		try{
-			var data = JSON.parse(event.data);
-			if(data?.type == "onSave" && props?.onSave){
-				props?.onSave(data?.data);
-			}
-		}catch(e){
-
-		}
-	}, false);
-	// },[]);
-
-	return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
-};
-const ContractSign = (props) => {
-	var url = endURL+"/editor/send?PK="+props?.publishKey+"&contractKey="+props?.contractKey;
-
-	// todo: make it run
-	// useEffect((e)=>{
-	window.addEventListener("message", (event)=>{
-		try{
-			var data = JSON.parse(event.data);
-			if(data?.type == "onSubmit" && props?.onSubmit){
-				props?.onSubmit(data?.data);
-			}
-		}catch(e){
-
-		}
-	}, false);
-	// },[]);
-
-	return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
+        if (data?.type == "onSave" && props?.onSave) {
+          props?.onSave(data?.data);
+        }
+      } catch (e) {}
+    }, false);
+  }, []);
+  return /*#__PURE__*/_react["default"].createElement("iframe", {
+    src: url,
+    style: {
+      width: "100%",
+      height: "100%",
+      border: "1"
+    }
+  });
 };
 
-export {ContractEditor,ContractSign};
+exports.ContractEditor = ContractEditor;
+
+var ContractSign = function ContractSign(props) {
+  var url = endURL + "/editor/send?PK=" + props?.publishKey + "&contractKey=" + props?.contractKey;
+  (0, _react.useEffect)(function (e) {
+    window.addEventListener("message", function (event) {
+      try {
+        var data = JSON.parse(event.data);
+
+        if (data?.type == "onSubmit" && props?.onSubmit) {
+          props?.onSubmit(data?.data);
+        }
+      } catch (e) {}
+    }, false);
+  }, []);
+  return /*#__PURE__*/_react["default"].createElement("iframe", {
+    src: url,
+    style: {
+      width: "100%",
+      height: "100%",
+      border: "1"
+    }
+  });
+};
+
+exports.ContractSign = ContractSign;

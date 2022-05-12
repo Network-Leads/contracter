@@ -1,10 +1,45 @@
-import * as React from 'react';
+import React, {useEffect, useState, useRef} from "react";
 
-const Contracts = (props) => {
-    // let endURL = "http://localhost:3001";
-    let endURL = "http://app.network-leads.com";
-    var url = endURL+"/editor/"+props?.publishKey;
+// const endURL = "http://localhost:3001";
+const endURL = "http://app.network-leads.com";
+
+
+const ContractEditor = (props) => {
+    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountId="+props?.subAccountId+"&id="+props?.id;
+
+
+    useEffect((e) => {
+        window.addEventListener("message", (event)=>{
+            try{
+                var data = JSON.parse(event.data);
+                if(data?.type == "onSave" && props?.onSave){
+                    props?.onSave(data?.data);
+                }
+            }catch(e){
+
+            }
+        }, false);
+    },[])
+
+    return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
+};
+const ContractSign = (props) => {
+    var url = endURL+"/editor/send?PK="+props?.publishKey+"&contractKey="+props?.contractKey;
+
+    useEffect((e)=>{
+        window.addEventListener("message", (event)=>{
+            try{
+                var data = JSON.parse(event.data);
+                if(data?.type == "onSubmit" && props?.onSubmit){
+                    props?.onSubmit(data?.data);
+                }
+            }catch(e){
+
+            }
+        }, false);
+    },[])
+
     return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
 
-export default Contracts;
+export {ContractEditor,ContractSign};
