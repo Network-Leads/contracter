@@ -2,17 +2,15 @@
 
 React components for Contracter Network Leads
 
-[![build status](https://img.shields.io/npm/l/contracter)](https://www.npmjs.com/package/@network-leads/react-contracts-js)
-[![npm version](https://img.shields.io/npm/v/contracter)](https://www.npmjs.com/package/@network-leads/react-contracts-js)
+[![build status](https://img.shields.io/npm/l/contracter)](https://www.npmjs.com/package/contracter)
+[![npm version](https://img.shields.io/npm/v/contracter)](https://www.npmjs.com/package/contracter)
 
 React.js front-end package of creating, editing & signing contracts.<br/>
-To interact with the API - see [contracts-js](https://github.com/network-leads/contracter-js)
+To interact with the API - see [contracter-js](https://github.com/network-leads/contracter-js)
 
 ### Minimal example
 
-First, install react-contracts-js and
-[contracts-js](https://github.com/network-leads/contracter-js).
-
+First, install this package
 ```sh
 npm install contracter
 ```
