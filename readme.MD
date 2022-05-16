@@ -24,8 +24,8 @@ import {ContractEditor} from "contracter";
 
 const App = () => {
 
-    const save = async (id) => {
-        // id of the newly created template
+    const save = async (data) => {
+        // data = {contractId:10, type:"save/update"}
     }
 
     return (
@@ -54,8 +54,8 @@ ReactDOM.render(<App />, document.body);
     subAccountId: int,
     
     // Called whenever contract 'save' button is clicked
-    // returns the newly created template id
-    onSave: (id: int) => void,
+    // returns an object with the new template id and if it was an edit or a new save
+    onSave: (data: Object) => void,
 }
 ```
 
