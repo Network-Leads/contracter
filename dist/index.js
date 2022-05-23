@@ -17,7 +17,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 var endURL = "https://www.contracter.io";
 
 var ContractEditor = function ContractEditor(props) {
-  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountId=" + props?.subAccountId + "&id=" + props?.id; // useEffect((e) => {
+  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountId=" + props?.subAccountId + "&id=" + props?.id + "&color=" + props?.color; // useEffect((e) => {
 
   window.addEventListener("message", function (event) {
     try {
@@ -42,7 +42,7 @@ var ContractEditor = function ContractEditor(props) {
 exports.ContractEditor = ContractEditor;
 
 var ContractSign = function ContractSign(props) {
-  var url = endURL + "/editor/send?PK=" + props?.publishKey + "&contractKey=" + props?.contractKey; // useEffect((e)=>{
+  var url = endURL + "/editor/sign/" + props?.contractKey + "/?PK=" + props?.publishKey; // useEffect((e)=>{
 
   window.addEventListener("message", function (event) {
     try {
