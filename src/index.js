@@ -5,7 +5,7 @@ const endURL = "https://www.contracter.io";
 
 
 const ContractEditor = (props) => {
-    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountId="+props?.subAccountId+"&id="+props?.id+"&color="+props?.color;
+    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountSID="+props?.subAccountSID+"&id="+props?.id+"&color="+props?.color;
 
 
     // useEffect((e) => {
