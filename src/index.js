@@ -5,7 +5,7 @@ const endURL = "https://www.contracter.io";
 
 
 const ContractEditor = (props) => {
-    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountSID="+props?.subAccountSID+"&id="+props?.id+"&color="+props?.color;
+    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountSID="+props?.subAccountSID+"&id="+props?.id+"&color="+props?.color+"&tags="+encodeURIComponent(JSON.stringify(props?.tags));
 
 
     // useEffect((e) => {
@@ -24,7 +24,7 @@ const ContractEditor = (props) => {
     return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
 const ContractSign = (props) => {
-    var url = endURL+"/editor/sign/"+props?.contractKey+"/?PK="+props?.publishKey;
+    var url = endURL+"/editor/sign/"+props?.contractKey+"/?PK="+props?.publishKey+"&tags="+encodeURIComponent(JSON.stringify(props?.tags));
 
     // useEffect((e)=>{
         window.addEventListener("message", (event)=>{
