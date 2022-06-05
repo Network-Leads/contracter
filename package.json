@@ -1,6 +1,6 @@
 {
   "name": "contracter",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "React.js package for Contracter by Network Leads",
   "main": "dist/index.js",
   "scripts": {
@@ -53,6 +53,7 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^4.0.0",
     "load-script": "^1.0.0",
+    "moment": "^2.29.3",
     "whatwg-fetch": "^2.0.4"
   }
 }
