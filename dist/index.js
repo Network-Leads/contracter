@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ContractSign = exports.ContractEditor = void 0;
+exports.ContractView = exports.ContractSign = exports.ContractEditor = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -67,3 +67,17 @@ var ContractSign = function ContractSign(props) {
 };
 
 exports.ContractSign = ContractSign;
+
+var ContractView = function ContractView(props) {
+  var url = endURL + "/editor/view?PK=" + props?.publishKey + "&subAccountSID=" + props?.subAccountSID + "&id=" + props?.id + "&color=" + props?.color + "&r=" + moment().unix();
+  return /*#__PURE__*/_react["default"].createElement("iframe", {
+    src: url,
+    style: {
+      width: "100%",
+      height: "100%",
+      border: "1"
+    }
+  });
+};
+
+exports.ContractView = ContractView;

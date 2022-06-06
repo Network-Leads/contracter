@@ -42,5 +42,10 @@ const ContractSign = (props) => {
 
     return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
 };
+const ContractView = (props) => {
+    var url = endURL+"/editor/view?PK="+props?.publishKey+"&subAccountSID="+props?.subAccountSID+"&id="+props?.id+"&color="+props?.color+"&r="+moment().unix();
 
-export {ContractEditor,ContractSign};
+    return <iframe src={url} style={{width: "100%", height: "100%", border: "1"}} />
+};
+
+export {ContractEditor,ContractSign,ContractView};
