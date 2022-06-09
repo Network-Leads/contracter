@@ -19,7 +19,7 @@ var moment = require('moment'); // const endURL = "http://localhost:3001";
 var endURL = "https://www.contracter.io";
 
 var ContractEditor = function ContractEditor(props) {
-  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountSID=" + props?.subAccountSID + "&id=" + props?.id + "&color=" + props?.color + "&type=" + props?.type + "&fileURL=" + encodeURIComponent(props?.fileURL) + "&tags=" + encodeURIComponent(JSON.stringify(props?.tags)) + "&r=" + moment().unix(); // useEffect((e) => {
+  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountSID=" + props?.subAccountSID + "&id=" + props?.id + "&color=" + props?.color + "&type=" + props?.type + "&fileURL=" + encodeURIComponent(props?.fileURL) + "&tags=" + encodeURIComponent(JSON.stringify(props?.tags)); // useEffect((e) => {
 
   window.addEventListener("message", function (event) {
     try {
