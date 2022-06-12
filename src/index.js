@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef} from "react";
 const moment = require('moment');
 
-const endURL = "http://localhost:3001";
-// const endURL = "https://www.contracter.io";
+// const endURL = "http://localhost:3001";
+const endURL = "https://www.contracter.io";
 
 
 const ContractEditor = (props) => {
