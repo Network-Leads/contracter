@@ -18,15 +18,24 @@ var moment = require('moment'); // const endURL = "http://localhost:3001";
 
 var endURL = "https://www.contracter.io";
 
-var ContractEditor = function ContractEditor(props) {
-  var url = endURL + "/editor/edit?PK=" + props?.publishKey + "&subAccountSID=" + props?.subAccountSID + "&id=" + props?.id + "&color=" + props?.color + "&type=" + props?.type + "&fileURL=" + encodeURIComponent(props?.fileURL) + "&tags=" + encodeURIComponent(JSON.stringify(props?.tags)); // useEffect((e) => {
+var ContractEditor = function ContractEditor(_ref) {
+  var publishKey = _ref.publishKey,
+      subAccountSID = _ref.subAccountSID,
+      id = _ref.id,
+      marketplaceTemplateId = _ref.marketplaceTemplateId,
+      color = _ref.color,
+      type = _ref.type,
+      fileURL = _ref.fileURL,
+      tags = _ref.tags,
+      onSave = _ref.onSave;
+  var url = endURL + "/editor/edit?PK=" + publishKey + "&subAccountSID=" + subAccountSID + "&id=" + id + "&marketplaceTemplateId=" + marketplaceTemplateId + "&color=" + color + "&type=" + type + "&fileURL=" + encodeURIComponent(fileURL) + "&tags=" + encodeURIComponent(JSON.stringify(tags)); // useEffect((e) => {
 
   window.addEventListener("message", function (event) {
     try {
       var data = JSON.parse(event.data);
 
-      if (data?.type == "onSave" && props?.onSave) {
-        props?.onSave(data?.data);
+      if (data?.type == "onSave" && onSave) {
+        onSave(data?.data);
       }
     } catch (e) {}
   }, false); // },[])

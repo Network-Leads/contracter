@@ -5,16 +5,16 @@ const moment = require('moment');
 const endURL = "https://www.contracter.io";
 
 
-const ContractEditor = (props) => {
-    var url = endURL+"/editor/edit?PK="+props?.publishKey+"&subAccountSID="+props?.subAccountSID+"&id="+props?.id+"&color="+props?.color+"&type="+props?.type+"&fileURL="+encodeURIComponent(props?.fileURL)+"&tags="+encodeURIComponent(JSON.stringify(props?.tags));
+const ContractEditor = ({publishKey,subAccountSID,id,marketplaceTemplateId,color,type,fileURL,tags,onSave}) => {
+    var url = endURL+"/editor/edit?PK="+publishKey+"&subAccountSID="+subAccountSID+"&id="+id+"&marketplaceTemplateId="+marketplaceTemplateId+"&color="+color+"&type="+type+"&fileURL="+encodeURIComponent(fileURL)+"&tags="+encodeURIComponent(JSON.stringify(tags));
 
 
     // useEffect((e) => {
         window.addEventListener("message", (event)=>{
             try{
                 var data = JSON.parse(event.data);
-                if(data?.type == "onSave" && props?.onSave){
-                    props?.onSave(data?.data);
+                if(data?.type == "onSave" && onSave){
+                    onSave(data?.data);
                 }
             }catch(e){
 
