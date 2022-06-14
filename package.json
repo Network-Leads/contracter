@@ -1,6 +1,6 @@
 {
   "name": "contracter",
-  "version": "1.0.51",
+  "version": "1.0.52",
   "description": "React.js package for Contracter by Network Leads",
   "main": "dist/index.js",
   "scripts": {
