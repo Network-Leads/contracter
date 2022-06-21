@@ -5,8 +5,8 @@ const moment = require('moment');
 const endURL = "https://www.contracter.io";
 
 
-const ContractEditor = ({publishKey,subAccountSID,id,marketplaceTemplateId,color,type,fileURL,tags,onSave}) => {
-    var url = endURL+"/editor/edit?PK="+publishKey+"&subAccountSID="+subAccountSID+"&id="+id+"&marketplaceTemplateId="+marketplaceTemplateId+"&color="+color+"&type="+type+"&fileURL="+encodeURIComponent(fileURL)+"&tags="+encodeURIComponent(JSON.stringify(tags));
+const ContractEditor = ({publishKey,subAccountSID,id,marketplaceTemplateId,color,type,fileURL,name,tags,onSave}) => {
+    var url = endURL+"/editor/edit?PK="+publishKey+"&subAccountSID="+subAccountSID+"&id="+id+"&marketplaceTemplateId="+marketplaceTemplateId+"&color="+color+"&type="+type+"&fileURL="+encodeURIComponent(fileURL)+"&name="+name+"&tags="+encodeURIComponent(JSON.stringify(tags));
 
 
     // useEffect((e) => {

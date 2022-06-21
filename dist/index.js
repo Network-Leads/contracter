@@ -26,9 +26,10 @@ var ContractEditor = function ContractEditor(_ref) {
       color = _ref.color,
       type = _ref.type,
       fileURL = _ref.fileURL,
+      name = _ref.name,
       tags = _ref.tags,
       onSave = _ref.onSave;
-  var url = endURL + "/editor/edit?PK=" + publishKey + "&subAccountSID=" + subAccountSID + "&id=" + id + "&marketplaceTemplateId=" + marketplaceTemplateId + "&color=" + color + "&type=" + type + "&fileURL=" + encodeURIComponent(fileURL) + "&tags=" + encodeURIComponent(JSON.stringify(tags)); // useEffect((e) => {
+  var url = endURL + "/editor/edit?PK=" + publishKey + "&subAccountSID=" + subAccountSID + "&id=" + id + "&marketplaceTemplateId=" + marketplaceTemplateId + "&color=" + color + "&type=" + type + "&fileURL=" + encodeURIComponent(fileURL) + "&name=" + name + "&tags=" + encodeURIComponent(JSON.stringify(tags)); // useEffect((e) => {
 
   window.addEventListener("message", function (event) {
     try {
